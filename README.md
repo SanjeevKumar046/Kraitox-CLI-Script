@@ -1,28 +1,21 @@
-<br/>
-<div align="center">
-<a href="https://github.com/ShaanCoding/ReadME-Generator">
-<img src="https://imgur.com/a/8ZXAj4P.png" alt="Logo" height="80">
-</a>
-<h3 align="center">Kraitox Script</h3>
-<p align="center">
-A PowerShell script for installing essential apps via Winget after a fresh Windows install, offering a selectable list of must-have applications.
-<br/>
-<br/>
-  
-<a href="https://github.com/SanjeevKumar046/Kraitox-Script/issues/new?labels=bug&template=bug-report---.md">Report Bug .</a>
-<a href="https://github.com/SanjeevKumar046/Kraitox-Script/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-</p>
-</div>
+# Kraitox Script
 
- ## About The Project
+A PowerShell script for installing essential apps via Winget after a fresh Windows install, offering a selectable list of must-have applications.
+
+[Report Bug](https://github.com/SanjeevKumar046/Kraitox-Script/issues/new?labels=bug&template=bug-report---.md) | [Request Feature](https://github.com/SanjeevKumar046/Kraitox-Script/issues/new?labels=enhancement&template=feature-request---.md)
+
+
+## About The Project
 
 ![Product Screenshot](https://imgur.com/J9YjoSh.png)
 
 This PowerShell script is designed to streamline the setup process after a fresh Windows installation by automating the installation of essential applications. It provides a user-friendly menu to select and install/update various categories of applications using Windows Package Manager (winget).
- ### Built With
+
+## Built With
 
 - [Powershell](https://learn.microsoft.com/en-us/powershell/)
- ## Getting Started
+
+## Getting Started
 
 To get started with using this script, follow these steps:
 `Run powershell as admin before you run the script`
@@ -32,31 +25,31 @@ To get started with using this script, follow these steps:
 **Select Applications:** From each category, choose the applications you want to install or update by entering their corresponding numbers separated by commas.
 
 **Confirm Installation:** After selecting the applications, the script will prompt you to confirm the installation. Review the list of selected applications and proceed with installation or cancel if needed.
- ## Usage
 
-#### Menu Navigation:
+## Usage
+
+### Menu Navigation:
 - Upon running the script, you will see a menu listing various application categories.
 - Each category displays numbered options for applications available in that category.
 
-#### Select Applications:
+### Select Applications:
 - Enter the numbers of the applications you wish to install/update, separated by commas.
 - If you make a mistake or want to cancel, entering 'X' or 'x' will exit the script.
 
-#### Confirmation:
+### Confirmation:
 - After selecting applications, the script will display a list of chosen applications for confirmation.
 - Choose 'Yes' to proceed with installation or 'No' to cancel.
 
-#### Installation Progress:
+### Installation Progress:
 - The script will proceed to install each selected application using winget.
 - Progress and installation status will be displayed in the console.
 
-#### Completion:
+### Completion:
 - Once all selected applications are installed, the script will conclude.
 
-#### Example Usage:
+### Example Usage:
 
 **Scenario:** You want to install Brave browser, VLC media player, and Notepad++.
-
 ```
 11, 31, 72
 ```
