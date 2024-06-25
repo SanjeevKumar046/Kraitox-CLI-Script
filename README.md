@@ -1,12 +1,11 @@
 <br/>
 <div align="center">
 <a href="https://github.com/ShaanCoding/ReadME-Generator">
-<img src="https://imgur.com/a/8ZXAj4P" alt="Logo" width="80" height="80">
+<img src="https://imgur.com/a/8ZXAj4P.png" alt="Logo" height="80">
 </a>
 <h3 align="center">Kraitox Script</h3>
 <p align="center">
 A PowerShell script for installing essential apps via Winget after a fresh Windows install, offering a selectable list of must-have applications.
-
 <br/>
 <br/>
   
@@ -17,7 +16,7 @@ A PowerShell script for installing essential apps via Winget after a fresh Windo
 
  ## About The Project
 
-![Product Screenshot](https://imgur.com/J9YjoSh)
+![Product Screenshot](https://imgur.com/J9YjoSh.png)
 
 This PowerShell script is designed to streamline the setup process after a fresh Windows installation by automating the installation of essential applications. It provides a user-friendly menu to select and install/update various categories of applications using Windows Package Manager (winget).
  ### Built With
