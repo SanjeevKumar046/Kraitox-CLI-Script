@@ -18,40 +18,50 @@ $apps = @{
     31 = "VideoLAN.VLC"
     32 = "CodecGuide.K-LiteCodecPack.Standard"
 
-    41 = "qBittorrent.qBittorrent"
-    42 = "File-New-Project.EarTrumpet"
-    43 = "Microsoft.PowerToys"
-    44 = "REALiX.HWiNFO"
-    45 = "GeekUninstaller.GeekUninstaller"
-    46 = "7zip.7zip"
-    47 = "CodeSector.TeraCopy"
-    48 = "JAMSoftware.TreeSize.Free"
+    41 = "CodeSector.TeraCopy"
+    42 = "JAMSoftware.TreeSize.Free"
 
-    51 = "Adobe.Acrobat.Reader.64-bit"
-    52 = "Notepad++.Notepad++"
+    51 = "Microsoft.PowerToys"
+    52 = "REALiX.HWiNFO"
+    53 = "GeekUninstaller.GeekUninstaller"
+    54 = "File-New-Project.EarTrumpet"
+    55 = "7zip.7zip"
 
-    X  = ""
+    61 = "qBittorrent.qBittorrent"
+    62 = "SoftDeluxe.FreeDownloadManager"
+
+    71 = "Adobe.Acrobat.Reader.64-bit"
+    72 = "Notepad++.Notepad++"
+    73 = "TheDocumentFoundation.LibreOffice"
+    
+    81 = "Malwarebytes.Malwarebytes"
+    82 = "Bitdefender.Bitdefender"
+
+    91 = "AnyDeskSoftwareGmbH.AnyDesk"
 
 }
 
 function Install-Windows-Apps {
-    Write-Host "`nThis script will install or update the following apps:" -ForegroundColor DarkCyan
+    Write-Host "`nThis script will install or update the following apps:" -ForegroundColor DarkYellow
 
     $categories = @{
         1 = "Web Browsers"
-        2 = "Messaging"
+        2 = "Messaging & Communication"
         3 = "Media & Entertainment"
-        4 = "Utilities"
-        5 = "Documents & editing"
-        6 = "Exit"
+        4 = "File Management"
+        5 = "System Utilities"
+        6 = "Network & Internet"
+        7 = "PDF & Documents"
+        8 = "Security and Privacy"
+        9 = "Others"
     }
 
     function Show-Menu {
-        Write-Host "`n----MENU----" -ForegroundColor DarkCyan
+        Write-Host "`n----MENU----" -ForegroundColor DarkYellow
     
         foreach ($category in $categories.Keys | Sort-Object) {
             Write-Host ""
-            Write-Host "$($categories[$category]):" -ForegroundColor DarkCyan
+            Write-Host "$($categories[$category]):" -ForegroundColor DarkYellow
             foreach ($key in $apps.Keys | Where-Object { $_ -match "^$category" } | Sort-Object) {
                 $appId = $key
                 $appName = $apps[$appId]
@@ -115,13 +125,14 @@ function Install-Windows-Apps {
         
             if ($invalidApps.Count -gt 0) {
                 Write-Host "Invalid app number(s): $($invalidApps -join ', '). Refer to the list above." -ForegroundColor Red
-                Write-Host "`nPlease enter the numbers of the apps to install or update (separated by comma)." -ForegroundColor DarkCyan
-                $selectedApps = Read-Host "For example 11, 31 to install Brave and VLC"
+                Write-Host "`nPlease enter the numbers of the apps to install or update (separated by comma)." -ForegroundColor DarkYellow
+                Write-Host "For example 11, 31 to install Brave and VLC: " -NoNewline -ForegroundColor Red
+                $selectedApps = Read-Host
             }
             else {
                 # Prompt for confirmation
                 if ($selectedAppNames.Count -gt 0) {
-                    Write-Host "`nThis script will install or update the following apps:" -ForegroundColor DarkCyan
+                    Write-Host "`nThis script will install or update the following apps:" -ForegroundColor DarkYellow
                     foreach ($appId in $selectedAppIds) {
                         if ($apps.ContainsKey([int]$appId)) {
                             $appName = $apps[[int]$appId]
@@ -180,19 +191,20 @@ function Install-Windows-Apps {
                 
     Show-Menu
 
-    Write-Host "`nEnter the numbers of the apps to install or update (separated by comma)." -ForegroundColor DarkCyan
-    $selectedApps = Read-Host "For example 11, 31 to install Brave and VLC"
+    Write-Host "`nEnter the numbers of the apps to install or update (separated by comma)." -ForegroundColor DarkYellow
+    Write-Host "For example 11, 31 to install Brave and VLC: " -NoNewline -ForegroundColor DarkGray
+    $selectedApps = Read-Host
 
     Install-Apps -selectedApps $selectedApps -apps $apps
 }
 
 Clear-Host
-
-Write-Host "  ______ _______ ______  ______      ______ _______ ______  ______ _______ " -ForegroundColor DarkCyan
-Write-Host " / _____|_______|_____ \(_____ \    / _____|_______|_____ \(_____ (_______)" -ForegroundColor DarkCyan
-Write-Host "( (____  _____   _____) )_____) )  ( (____  _       _____) )_____) )  _    " -ForegroundColor DarkCyan
-Write-Host " \____ \|  ___) |  __  /|  ____/    \____ \| |     |  __  /|  ____/  | |   " -ForegroundColor DarkCyan
-Write-Host " _____) ) |_____| |  \ \| |         _____) ) |_____| |  \ \| |       | |   " -ForegroundColor DarkCyan
-Write-Host "(______/|_______)_|   |_|_|        (______/ \______)_|   |_|_|       |_|   " -ForegroundColor DarkCyan
+Write-Host @"
+   __ __         _ __             ____        _      __ 
+  / //_/______ _(_) /____ __ __  / __/_______(_)__  / /_
+ / ,< / __/ _ ` / / __/ _ \\ \ / _\ \/ __/ __/ / _ \/ __/
+/_/|_/_/  \_,_/_/\__/\___/_\_\ /___/\__/_/ /_/ .__/\__/ 
+                                            /_/         
+"@ -ForegroundColor DarkYellow
 
 Install-Windows-Apps
