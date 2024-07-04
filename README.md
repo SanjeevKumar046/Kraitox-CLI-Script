@@ -1,4 +1,4 @@
-# Kraitox Script
+# Kraitox CLI Script
 
 A PowerShell script for installing essential apps via Winget after a fresh Windows install, offering a selectable list of must-have applications.
 
