@@ -6,6 +6,7 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
     exit
 }
 
+## Essential apps
 $apps = @{
     11 = "Brave.Brave"
     12 = "Mozilla.Firefox"
